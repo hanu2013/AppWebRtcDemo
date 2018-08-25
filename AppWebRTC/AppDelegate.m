@@ -7,8 +7,13 @@
 //
 
 #import "AppDelegate.h"
+#import "SignalConnectionManagement.h"
+
+@import WebRTC;
 
 @interface AppDelegate ()
+@property (nonatomic, strong) SignalConnectionManagement *connManagement;
+
 
 @end
 
@@ -17,6 +22,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.connManagement = [SignalConnectionManagement sharedInstance];
+    
+    
     return YES;
 }
 
