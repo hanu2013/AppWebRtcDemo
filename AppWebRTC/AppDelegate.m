@@ -22,8 +22,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    self.connManagement = [SignalConnectionManagement sharedInstance];
+//    self.connManagement = [SignalConnectionManagement sharedInstance];
     
+    NSDictionary *fieldTrials = @{
+                                  kRTCFieldTrialH264HighProfileKey: kRTCFieldTrialEnabledValue,
+                                  };
+    RTCInitFieldTrialDictionary(fieldTrials);
+    RTCInitializeSSL();
+    RTCSetupInternalTracer();
     
     return YES;
 }
